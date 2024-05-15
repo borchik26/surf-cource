@@ -1,20 +1,20 @@
 # Description of your result
 
-You can describe your results in any language that is convenient for you, not just English.
+Задание было очень интересным. 
 
 ## Description
 
-[Describe what you have done]
+Все что описанно в задании, кроме описания иерархии классов
 
 ## How to
 
-[Describe how to run your application if there are any issues]
+Через консоль
 
 ## Problems
 
-[Describe the problems you encountered]
+Было сложно разобраться с аннотацией @override, точнее понять для чего она нужна. Также сложность вызвало создание вложенного объекта.
 
 ## More
 
-[Here you can brag about what you managed to implement or do something beyond the task]
+Наверно могу похвастаться красиво оформленным кодом и выводом в консоли)
 
