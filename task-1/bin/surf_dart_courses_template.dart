@@ -1,231 +1,43 @@
-// ignore_for_file: avoid_print
+class computer {
+  final String type;
+  final String brand;
+  final String model;
+  final String memory_type;
+  final int access_memory;
+  int? year_of_release;
 
-enum Countries { brazil, russia, turkish, spain, japan }
+  computer(this.type, this.brand, this.model, this.memory_type,
+      this.access_memory, this.year_of_release) {
+    parseYearFromModel();
+  }
 
-class Territory {
-  final int areaInHectare;
-  final List<String> crops;
-  final List<AgriculturalMachinery> machineries;
+  // Метод для извлечения года из модели и обновления year_of_release
+  void parseYearFromModel() {
+    // Регулярное выражение для поиска года в скобках
+    final RegExp regExp = RegExp(r'\((\d{4})\)');
 
-  Territory(
-    this.areaInHectare,
-    this.crops,
-    this.machineries,
-  );
-}
+    // Поиск совпадения в строке модели
+    final match = regExp.firstMatch(model);
 
-class AgriculturalMachinery {
-  final String id;
-  final DateTime releaseDate;
-
-  AgriculturalMachinery(
-    this.id,
-    this.releaseDate,
-  );
-
-  /// Переопределяем оператор "==", чтобы сравнивать объекты по значению.
-  @override
-  bool operator ==(Object? other) {
-    if (other is! AgriculturalMachinery) return false;
-    if (other.id == id && other.releaseDate == releaseDate) return true;
-
-    return false;
+    if (match != null && match.groupCount >= 1) {
+      // Пытаемся преобразовать найденную группу в число
+      final year = int.tryParse(match.group(1)!);
+      // Обновляем переменную, если удалось преобразовать
+      if (year != null) {
+        year_of_release = year;
+      }
+    }
   }
 
   @override
-  int get hashCode => id.hashCode ^ releaseDate.hashCode;
+  String toString() {
+    return ' Тип устройства: $type, Бренд:  $brand, Модель: $model,  Тип памяти: $memory_type,  Оперативная память: $access_memory, Год выпуска: $year_of_release';
+  }
 }
-
-final mapBefore2010 = <Countries, List<Territory>>{
-  Countries.brazil: [
-    Territory(
-      34,
-      ['Кукуруза'],
-      [
-        AgriculturalMachinery(
-          'Трактор Степан',
-          DateTime(2001),
-        ),
-        AgriculturalMachinery(
-          'Культиватор Сережа',
-          DateTime(2007),
-        ),
-      ],
-    ),
-  ],
-  Countries.russia: [
-    Territory(
-      14,
-      ['Картофель'],
-      [
-        AgriculturalMachinery(
-          'Трактор Гена',
-          DateTime(1993),
-        ),
-        AgriculturalMachinery(
-          'Гранулятор Антон',
-          DateTime(2009),
-        ),
-      ],
-    ),
-    Territory(
-      19,
-      ['Лук'],
-      [
-        AgriculturalMachinery(
-          'Трактор Гена',
-          DateTime(1993),
-        ),
-        AgriculturalMachinery(
-          'Дробилка Маша',
-          DateTime(1990),
-        ),
-      ],
-    ),
-  ],
-  Countries.turkish: [
-    Territory(
-      43,
-      ['Хмель'],
-      [
-        AgriculturalMachinery(
-          'Комбаин Василий',
-          DateTime(1998),
-        ),
-        AgriculturalMachinery(
-          'Сепаратор Марк',
-          DateTime(2005),
-        ),
-      ],
-    ),
-  ],
-};
-
-final mapAfter2010 = {
-  Countries.turkish: [
-    Territory(
-      22,
-      ['Чай'],
-      [
-        AgriculturalMachinery(
-          'Каток Кирилл',
-          DateTime(2018),
-        ),
-        AgriculturalMachinery(
-          'Комбаин Василий',
-          DateTime(1998),
-        ),
-      ],
-    ),
-  ],
-  Countries.japan: [
-    Territory(
-      3,
-      ['Рис'],
-      [
-        AgriculturalMachinery(
-          'Гидравлический молот Лена',
-          DateTime(2014),
-        ),
-      ],
-    ),
-  ],
-  Countries.spain: [
-    Territory(
-      29,
-      ['Арбузы'],
-      [
-        AgriculturalMachinery(
-          'Мини-погрузчик Максим',
-          DateTime(2011),
-        ),
-      ],
-    ),
-    Territory(
-      11,
-      ['Табак'],
-      [
-        AgriculturalMachinery(
-          'Окучник Саша',
-          DateTime(2010),
-        ),
-      ],
-    ),
-  ],
-};
 
 void main() {
-  final List<Territory> territoriesForAllTime = [
-    ...mapBefore2010.values
-        .expand(
-          (territory) => territory,
-        )
-        .toList(),
-  ];
+  computer macbook = computer(
+      'laptop', 'apple', 'MacBook Pro 15 (2015) A1398', 'DDR3', 16, null);
 
-  final Set<AgriculturalMachinery> uniqueAgriculturalMachineries = {};
-
-  for (final territory in territoriesForAllTime) {
-    uniqueAgriculturalMachineries.addAll(territory.machineries);
-  }
-
-  final int agriculturalMachineriesReleaseYearsSum =
-      uniqueAgriculturalMachineries
-          .map(
-            (agriculturalMachinery) => agriculturalMachinery.releaseDate.year,
-          )
-          .reduce(
-            (result, currentReleaseYear) => result + currentReleaseYear,
-          );
-
-  final double agriculturalMachineriesAverageReleaseYear =
-      agriculturalMachineriesReleaseYearsSum /
-          uniqueAgriculturalMachineries.length;
-  final double agriculturalMachineriesAverageYear =
-      DateTime.now().year - agriculturalMachineriesAverageReleaseYear;
-
-  print(
-    'Средний возраст '
-    'всей техники: '
-    '${agriculturalMachineriesAverageYear.toStringAsFixed(1)}',
-  );
-
-  final List<AgriculturalMachinery> oldestHalfOfAgriculturalMachineries =
-      uniqueAgriculturalMachineries.toList();
-
-  oldestHalfOfAgriculturalMachineries.sort(
-    (
-      agriculturalMachinery,
-      anotherAgriculturalMachinery,
-    ) =>
-        agriculturalMachinery.releaseDate.year
-            .compareTo(anotherAgriculturalMachinery.releaseDate.year),
-  );
-
-  oldestHalfOfAgriculturalMachineries.removeRange(
-    oldestHalfOfAgriculturalMachineries.length ~/ 2,
-    oldestHalfOfAgriculturalMachineries.length,
-  );
-
-  final int oldestAgriculturalMachineriesReleaseYearsSum =
-      oldestHalfOfAgriculturalMachineries
-          .map(
-            (agriculturalMachinery) => agriculturalMachinery.releaseDate.year,
-          )
-          .reduce(
-            (result, currentYear) => result + currentYear,
-          );
-
-  final double oldestAgriculturalMachineriesAverageReleaseYear =
-      oldestAgriculturalMachineriesReleaseYearsSum /
-          oldestHalfOfAgriculturalMachineries.length;
-
-  final double oldestAgriculturalMachineriesAverageYear =
-      DateTime.now().year - oldestAgriculturalMachineriesAverageReleaseYear;
-
-  print(
-    'Средний возраст '
-    'половины самой старохой техники: '
-    '${oldestAgriculturalMachineriesAverageYear.toStringAsFixed(1)}',
-  );
+  print(macbook);
 }
