@@ -2,8 +2,8 @@ class Computer {
   final String type;
   final String brand;
   final String model;
-  final String memory_type;
-  final int access_memory;
+  String memory_type;
+  int access_memory;
   int? year_of_release;
 
   Computer(this.type, this.brand, this.model, this.memory_type,
@@ -94,20 +94,45 @@ class Smartphone {
   }
 }
 
+class Engine {
+  final String type;
+  final String model;
+  final int power;
+  double volume;
+  final int numberOfCylinders;
+  final String fuelSystem;
+  final String manufacturer;
+
+  Engine({
+    required this.type,
+    required this.model,
+    required this.power,
+    required this.volume,
+    required this.numberOfCylinders,
+    required this.fuelSystem,
+    this.manufacturer = 'ВАЗ',
+  });
+
+  @override
+  String toString() {
+    return 'Тип двигателя: $type, Модель: $model, Мощность двигателя в лошадиных силах: $power, Объем двигателя: $volume, Количество цилиндров: $numberOfCylinders, Система питания двигателя: $fuelSystem, Название производителя двигателя: $manufacturer';
+  }
+}
+
 void main() {
   Smartphone samsung = Smartphone.fromDetails(
     brand: 'Samsung',
     model: 'Galaxy A24 4/128 ГБ, Dual nano SIM, зеленый (2024)',
-    accessMemory: 0,
-    yearOfRelease: 0,
+    accessMemory: null,
+    yearOfRelease: null,
     priceOld: 20000,
     discount: 10,
   );
   Smartphone iphone = Smartphone.fromDetails(
     brand: 'Apple',
     model: 'iPhone 15 Pro 3/128 ГБ, Dual: nano SIM + eSIM, титан (2023)',
-    accessMemory: 0,
-    yearOfRelease: 0,
+    accessMemory: null,
+    yearOfRelease: null,
     priceOld: 80000,
     discount: 7,
   );
@@ -117,13 +142,37 @@ void main() {
   Computer pc =
       Computer('PC', 'ASUS ', 'ROG Strix G10DK (2018)', 'DDR4', 32, null);
 
+  Engine vaz_2103 = Engine(
+      type: 'Бензиновый',
+      model: 'ВАЗ 2103',
+      power: 110,
+      volume: 1.5,
+      numberOfCylinders: 4,
+      fuelSystem: 'Карбюраторная');
+
+  Engine vaz_2110 = Engine(
+      type: 'Дизельный',
+      model: 'ВАЗ 2110',
+      power: 120,
+      volume: 1.6,
+      numberOfCylinders: 6,
+      fuelSystem: 'Инжекторная');
+
+  print('-- Компьютеры ----------------------------------------');
   print('---------- MacBook ----------');
   print('$macbook\n');
   print('---------- PC ----------');
   print('$pc\n');
 
+  print('-- Смартфоны ----------------------------------------');
   print('---------- Samsung ----------');
   print('$samsung\n');
   print('---------- iPhone ----------');
   print('$iphone\n');
+
+  print('-- Двигатели ----------------------------------------');
+  print('---------- ВАЗ 2103 ----------');
+  print('$vaz_2103\n');
+  print('---------- ВАЗ 2110 ----------');
+  print('$vaz_2110\n');
 }
