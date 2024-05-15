@@ -97,8 +97,8 @@ class Smartphone {
 class Engine {
   final String type;
   final String model;
-  final int power;
-  double volume;
+  int power;
+  final double volume;
   final int numberOfCylinders;
   final String fuelSystem;
   final String manufacturer;
@@ -116,6 +116,63 @@ class Engine {
   @override
   String toString() {
     return 'Тип двигателя: $type, Модель: $model, Мощность двигателя в лошадиных силах: $power, Объем двигателя: $volume, Количество цилиндров: $numberOfCylinders, Система питания двигателя: $fuelSystem, Название производителя двигателя: $manufacturer';
+  }
+}
+
+class Flower {
+  final String name;
+  int height;
+  final String soilType;
+  final String bloomingPeriod;
+  final String wateringNeeds;
+  final String lightRequirements;
+  final bool pestResistance;
+  int? lifeSpan;
+  final String originCountry;
+  final CareInstructions careInstructions;
+
+  Flower({
+    required this.name,
+    required this.height,
+    required this.soilType,
+    required this.bloomingPeriod,
+    required this.wateringNeeds,
+    required this.lightRequirements,
+    required this.pestResistance,
+    required this.lifeSpan,
+    required this.originCountry,
+    required this.careInstructions,
+  });
+
+  @override
+  String toString() {
+    return 'Flower{\n'
+        '  Название цветка: $name,\n'
+        '  Высота растения: ${height}см,\n'
+        '  Тип почвы: $soilType,\n'
+        '  Период цветения: $bloomingPeriod,\n'
+        '  Потребности в поливе: $wateringNeeds,\n'
+        '  Требования к свету: $lightRequirements,\n'
+        '  Устойчивость к вредителям: ${pestResistance ? "Устойчив" : "Не устойчив"},\n'
+        '  Срок жизни: ${lifeSpan} лет,\n'
+        '  Страна происхождения: $originCountry,\n'
+        '  Как ухаживать за цветком: ${careInstructions.toString()}\n'
+        '}';
+  }
+}
+
+class CareInstructions {
+  final String wateringSchedule;
+  final String fertilizerType;
+
+  CareInstructions({
+    required this.wateringSchedule,
+    required this.fertilizerType,
+  });
+
+  @override
+  String toString() {
+    return 'CareInstructions{ Полив: $wateringSchedule, Удобрения: $fertilizerType }';
   }
 }
 
@@ -158,21 +215,64 @@ void main() {
       numberOfCylinders: 6,
       fuelSystem: 'Инжекторная');
 
-  print('-- Компьютеры ----------------------------------------');
+  CareInstructions careInstructions = CareInstructions(
+    wateringSchedule: "Еженедельно",
+    fertilizerType: "Органический каждый месяц весной и летом",
+  );
+
+  Flower rose = Flower(
+    name: "Роза",
+    height: 30,
+    soilType: "Суглинистая",
+    bloomingPeriod: "Июнь-Сентябрь",
+    wateringNeeds: "Умеренный",
+    lightRequirements: "Полный солнечный свет",
+    pestResistance: true,
+    lifeSpan: 5,
+    originCountry: "Китай",
+    careInstructions: careInstructions,
+  );
+
+  CareInstructions orchidCareInstructions = CareInstructions(
+    wateringSchedule: "Каждые 7-10 дней",
+    fertilizerType:
+        "Специализированный для орхидей каждые две недели в период активного роста",
+  );
+
+  Flower orchid = Flower(
+    name: "Орхидея",
+    height: 25,
+    soilType: "Кора сфагнума",
+    bloomingPeriod: "Зима-Весна",
+    wateringNeeds: "Низкий",
+    lightRequirements: "Яркий, рассеянный свет",
+    pestResistance: false,
+    lifeSpan: 30,
+    originCountry: "Юго-Восточная Азия",
+    careInstructions: orchidCareInstructions,
+  );
+
+  print('-- КОМПЬЮТЕРЫ ----------------------------------------');
   print('---------- MacBook ----------');
   print('$macbook\n');
   print('---------- PC ----------');
   print('$pc\n');
 
-  print('-- Смартфоны ----------------------------------------');
+  print('-- СМАРТФОНЫ ----------------------------------------');
   print('---------- Samsung ----------');
   print('$samsung\n');
   print('---------- iPhone ----------');
   print('$iphone\n');
 
-  print('-- Двигатели ----------------------------------------');
+  print('-- ДВИГАТЕЛИ ----------------------------------------');
   print('---------- ВАЗ 2103 ----------');
   print('$vaz_2103\n');
   print('---------- ВАЗ 2110 ----------');
   print('$vaz_2110\n');
+
+  print('-- ЦВЕТЫ ----------------------------------------');
+  print('---------- Роза ----------');
+  print('$rose\n');
+  print('---------- Орхидея ----------');
+  print('$orchid\n');
 }
