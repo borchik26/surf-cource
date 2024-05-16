@@ -1,20 +1,20 @@
 # Description of your result
 
-You can describe your results in any language that is convenient for you, not just English.
+Выполнил задание
 
 ## Description
 
-[Describe what you have done]
+Постарался использовать основные  операторы и конструкции управления потоком.
 
 ## How to
 
-[Describe how to run your application if there are any issues]
+Проблем с эти не будет
 
 ## Problems
 
-[Describe the problems you encountered]
+Было сложно читать и привыкать к документации на Английском.
 
 ## More
 
-[Here you can brag about what you managed to implement or do something beyond the task]
+Сверх поставленной задачи ничего не сделал
 

@@ -1,5 +1,77 @@
-import 'package:surf_dart_courses_template/surf_dart_courses_template.dart' as surf_dart_courses_template;
+void main() {
+  int час = DateTime.now().hour;
 
-void main(List<String> arguments) {
-  print('Hello world: ${surf_dart_courses_template.calculate()}!');
+  вежливость(час);
+  выполнитьРаспорядокДня();
+}
+
+void вежливость(int час) {
+  if (час >= 8 && час < 12) {
+    print("Говорить при встрече: Доброе утро!");
+  } else if (час >= 12 && час < 18) {
+    print("Говорить при встрече: Добрый день!");
+  } else if (час >= 18 && час < 23) {
+    print("Говорить при встрече: Добрый вечер!");
+  } else {
+    print("Пожелать родным: спокойной ночи");
+  }
+}
+
+
+void выполнитьРаспорядокДня() {
+  int задачи = 5;
+  int выполнено = 0;
+
+
+  while (выполнено < задачи) {
+    выполнено++;
+    print("Задача $выполнено выполнена");
+
+    if (выполнено == 3) {
+      print("Перерыв на кофе");
+      continue; 
+    }
+
+    if (выполнено == задачи) {
+      print("Все задачи на день выполнены");
+      break;
+    }
+  }
+
+
+  for (int час = 0; час < 24; час++) {
+    if (час == 23) {
+      print("Время спать!");
+      break;
+    }
+    
+
+    switch (час) {
+      case 8:
+        print("Завтрак");
+        break;
+      case 13:
+        print("Обед");
+        break;
+      case 18:
+        print("Ужин");v
+        break;
+      default:
+
+
+        var действие = час < 7 ? "Спать" : "Работать";
+        print("Время: $час. Действие: $действие.");
+    }
+  }
+  
+
+	int утомление = 3;
+
+	do {
+	  print("Отдыхаем.");
+	  утомление--;
+	} while(утомление > 0);
+
+	print("Полностью отдохнули, продолжаем работу.");
+
 }
