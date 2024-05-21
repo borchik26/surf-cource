@@ -4,7 +4,9 @@ You can describe your results in any language that is convenient for you, not ju
 
 ## Description
 
-[Describe what you have done]
+Добавил определение тип функции "Strategy". Которая принимает два списка строк (карты на столе и текущая рука игрока) и возвращает число типа double. 
+
+Описал фейковую стратегии, которая просто печатает карты противника и возвращает 0.
 
 ## How to
 
@@ -12,9 +14,8 @@ You can describe your results in any language that is convenient for you, not ju
 
 ## Problems
 
-[Describe the problems you encountered]
+Сложность с понимание темы функций
 
 ## More
 
-[Here you can brag about what you managed to implement or do something beyond the task]
-
+Сделал только задание
