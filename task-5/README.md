@@ -4,7 +4,7 @@ You can describe your results in any language that is convenient for you, not ju
 
 ## Description
 
-[Describe what you have done]
+Написал код используя абстрактные классы в Person и интерфейсах IPlayer, ICoach. Наследовал классы Gamer, Coach, RolePlayer от классов Person и Gamer. Реализовал интерфейсы IPlayer и ICoach.  Реализовал методы play и coach по-разному в различных классах.
 
 ## How to
 
@@ -12,9 +12,9 @@ You can describe your results in any language that is convenient for you, not ju
 
 ## Problems
 
-[Describe the problems you encountered]
+Очень сложно было разобратся с конструкторами классов.
 
 ## More
 
-[Here you can brag about what you managed to implement or do something beyond the task]
+Выполнил все по заданию.
 
