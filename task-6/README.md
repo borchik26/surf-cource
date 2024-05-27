@@ -4,7 +4,8 @@ You can describe your results in any language that is convenient for you, not ju
 
 ## Description
 
-[Describe what you have done]
+Создал класс который содержит данные о товаре, такие как `id`, `category`, `name`, `price`, и `quantity`. Создал абстрактный класс Filter который принимает элемент типа `T` и возвращает логическое значение (`bool`). Затем определяются три конкретных фильтра: `CategoryFilter`, `PriceFilter` и `QuantityFilter`, каждый из которых реализует метод `apply` для фильтрации по своему критерию. Была создана функция которая принимает список элементов и объект фильтра, а возвращает отфильтрованный список. Также создал функцию которая принимает строку с данными о товарах, разбивает её на строки, а затем парсит каждую строку в объект.
+
 
 ## How to
 
@@ -12,9 +13,9 @@ You can describe your results in any language that is convenient for you, not ju
 
 ## Problems
 
-[Describe the problems you encountered]
+сложности возникли при написании функции парсинга и фильтации.
 
 ## More
 
-[Here you can brag about what you managed to implement or do something beyond the task]
+все сделал по заданию.
 
