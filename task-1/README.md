@@ -4,17 +4,18 @@ You can describe your results in any language that is convenient for you, not ju
 
 ## Description
 
-[Describe what you have done]
+Задание – "Травка-муравка"
 
 ## How to
 
-[Describe how to run your application if there are any issues]
+Через консоль
+
 
 ## Problems
 
-[Describe the problems you encountered]
+Никаких проблем
 
 ## More
 
-[Here you can brag about what you managed to implement or do something beyond the task]
+Пока нечем
 
