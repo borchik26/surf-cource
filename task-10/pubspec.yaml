@@ -1,0 +1,40 @@
+name: flutter_application_8
+description: A new Flutter project.
+
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.17.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_svg: ^2.0.10+1 
+  cupertino_icons: ^1.0.6  
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^4.0.0  
+  lints: ^4.0.0  
+
+flutter:
+  fonts:
+    - family: DancingScript
+      fonts:
+        - asset: assets/fonts/DancingScript.ttf
+    - family: Pacifico
+      fonts:
+        - asset: assets/fonts/Pacifico.ttf
+    - family: Timesnewroman
+      fonts:
+        - asset: assets/fonts/Timesnewromanpsmt.ttf
+
+
+  assets:
+    - assets/images/profile_picture.png
+    - assets/icons/
+    - assets/fonts/
+
